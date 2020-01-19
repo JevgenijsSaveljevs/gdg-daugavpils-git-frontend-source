@@ -19,6 +19,7 @@ import { SongListComponent } from './song-list/song-list.component';
 import { TrackHasImagePipe } from './pipes/track-has-image.pipe';
 import { TrackImagePipe } from './pipes/track-image.pipe';
 import { JoinTrackArtistsPipe } from './pipes/join-track-artists.pipe';
+import { FeatureChartComponent } from './feature-chart/feature-chart.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { JoinTrackArtistsPipe } from './pipes/join-track-artists.pipe';
     TrackHasImagePipe,
     TrackImagePipe,
     JoinTrackArtistsPipe,
+    FeatureChartComponent,
   ],
   imports: [
     BrowserModule,
