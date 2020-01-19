@@ -1,0 +1,25 @@
+.content {
+    padding-top: 8%;
+    display: flex;
+    align-items: center;
+    // vertical-align: middle;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+$contentWidth: 50%;
+
+.search-box {
+    width: $contentWidth;
+}
+
+.results{
+    width: $contentWidth;
+    display: flex;
+}
+
+.example-full-width {
+    width: 100%;
+    font-size: 22px;
+}

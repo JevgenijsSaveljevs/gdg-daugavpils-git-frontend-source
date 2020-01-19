@@ -1,0 +1,28 @@
+.item-left-margin {
+    margin-left: 5px;
+}
+
+.song-card {
+    flex-direction: row;
+    display: flex;
+}
+
+$color: #7d8083;
+.song-name {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 5px;
+    color: $color;
+    font-weight: 500 !important;
+}
+
+.track-details {
+    margin-left: 1em;
+}
+
+.track-artists { 
+    color: $color;
+    font-size: inherit;
+    font-weight: 400;
+}

@@ -1,0 +1,46 @@
+<div *ngIf="tracks && tracks.length > 0" style="width: 100%;">
+    <mat-card *ngFor="let track of tracks" class="item">
+        <!-- <mat-card-title>
+            {{artist.name}}
+        </mat-card-title>
+         -->
+        <mat-card-content>
+            <div class="song-card">
+
+                <img mat-card-sm-image *ngIf="track | trackHasImage" [src]="track | trackImage" />
+                <img mat-card-sm-image *ngIf="!(track | trackHasImage)" class="no-image" />
+                <div class="track-details">
+                    <h1 class="song-name">
+                        {{track.name}}
+                    </h1>
+                    <h3 class="track-artists">
+                        {{track | joinTrackArtists}}
+                    </h3>
+                    <!-- <div *ngIf="artist | artistHasGenres">
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let genre of artist.genres">{{genre}}</mat-chip>
+                        </mat-chip-list>
+                    </div> -->
+                </div>
+
+                <!-- <div> -->
+                <!-- <ul>
+                        <li>
+                            <h1>
+                                {{artist.name}}
+                            </h1>
+                        </li>
+                        <li>
+                            Followers: {{artist.followers.total}}
+                        </li>
+                        <li>
+                            Genres: {{artist.followers.total}}
+                        </li>
+                    </ul> -->
+                <!-- </div> -->
+
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

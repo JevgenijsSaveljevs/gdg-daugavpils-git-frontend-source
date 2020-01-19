@@ -1,0 +1,43 @@
+<div *ngIf="artists && artists.length > 0">
+    <mat-card *ngFor="let artist of artists" class="item">
+        <!-- <mat-card-title>
+            {{artist.name}}
+        </mat-card-title>
+         -->
+        <mat-card-content>
+            <div class="artist-card">
+
+                <img mat-card-sm-image *ngIf="artist | artistHasImage" [src]="artist | artistImage" />
+                <img mat-card-sm-image *ngIf="!(artist | artistHasImage)" class="no-image" />
+                <div class="artist-details">
+                    <h1 class="artist-name">
+                        {{artist.name}}
+                    </h1>
+                    <div *ngIf="artist | artistHasGenres">
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let genre of artist.genres">{{genre}}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+
+                <!-- <div> -->
+                <!-- <ul>
+                        <li>
+                            <h1>
+                                {{artist.name}}
+                            </h1>
+                        </li>
+                        <li>
+                            Followers: {{artist.followers.total}}
+                        </li>
+                        <li>
+                            Genres: {{artist.followers.total}}
+                        </li>
+                    </ul> -->
+                <!-- </div> -->
+
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
