@@ -1,5 +1,5 @@
 <div *ngIf="tracks && tracks.length > 0" style="width: 100%;">
-    <mat-card *ngFor="let track of tracks" class="item">
+    <mat-card *ngFor="let track of tracks" class="item" (click)="onCardClicked(track)">
         <!-- <mat-card-title>
             {{artist.name}}
         </mat-card-title>

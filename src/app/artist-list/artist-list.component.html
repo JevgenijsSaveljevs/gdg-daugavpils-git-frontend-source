@@ -1,5 +1,5 @@
 <div *ngIf="artists && artists.length > 0">
-    <mat-card *ngFor="let artist of artists" class="item">
+    <mat-card *ngFor="let artist of artists" class="item" (click)="onCardClicked(artist)">
         <!-- <mat-card-title>
             {{artist.name}}
         </mat-card-title>
@@ -19,25 +19,7 @@
                         </mat-chip-list>
                     </div>
                 </div>
-
-                <!-- <div> -->
-                <!-- <ul>
-                        <li>
-                            <h1>
-                                {{artist.name}}
-                            </h1>
-                        </li>
-                        <li>
-                            Followers: {{artist.followers.total}}
-                        </li>
-                        <li>
-                            Genres: {{artist.followers.total}}
-                        </li>
-                    </ul> -->
-                <!-- </div> -->
-
             </div>
-
         </mat-card-content>
     </mat-card>
 </div>

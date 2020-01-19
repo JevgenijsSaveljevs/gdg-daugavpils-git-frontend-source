@@ -20,6 +20,8 @@ import { TrackHasImagePipe } from './pipes/track-has-image.pipe';
 import { TrackImagePipe } from './pipes/track-image.pipe';
 import { JoinTrackArtistsPipe } from './pipes/join-track-artists.pipe';
 import { FeatureChartComponent } from './feature-chart/feature-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { FeatureChartComponent } from './feature-chart/feature-chart.component';
     AppLoadModule,
     HttpClientModule,
     MatChipsModule,
+    ChartsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

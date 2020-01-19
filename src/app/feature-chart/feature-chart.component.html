@@ -1,1 +1,12 @@
-<p>feature-chart works!</p>
+<mat-card class="item">    
+    <mat-card-content>
+        <div *ngIf="showChart" style="display: block; width: 1170px; height: 585px;">
+            <canvas style="width: 100%;" baseChart [datasets]="radarChartData" [options]="radarChartOptions"
+                [labels]="radarChartLabels" [chartType]="radarChartType">
+            </canvas>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="cleanFeatures()" color="primary">Clean</button>
+    </mat-card-actions>
+</mat-card>

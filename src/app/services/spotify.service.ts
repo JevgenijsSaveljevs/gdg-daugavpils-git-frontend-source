@@ -22,4 +22,15 @@ export class SpotifyService {
 
     return this.http.get(url, { params });
   }
+
+  audioFeatures(id: string) {
+    const config = this.configService.getConfig()
+    const apiBase = config['apiEndpoint'];
+    const url = `${apiBase}audio-features`
+
+    let params = new HttpParams();
+    params = params.append('id', id);
+
+    return this.http.get(url, { params });
+  }
 }

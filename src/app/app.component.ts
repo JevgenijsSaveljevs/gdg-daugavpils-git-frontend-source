@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SpotifyService } from './services/spotify.service';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { Artist } from './models/artist';
+import { Track } from './models/track';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent {
   refreshSearchResults$: any;
   artists: any[];
   tracks: any[];
+  selectedTrack: Track;
 
   constructor(private spotifyService: SpotifyService) {
     this.refreshSearchResults$ = this.searchTextChanged$
@@ -40,6 +43,10 @@ export class AppComponent {
               }
             })
       })
+  }
+
+  ontrackSelected(track: Track) {
+    this.selectedTrack = track;
   }
 
   onSearchTextChange(text) {

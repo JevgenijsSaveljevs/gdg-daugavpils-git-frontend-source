@@ -15,6 +15,7 @@
 
   <div class="results">
     <!-- <app-artist-list [artists]="artists" style="width: 50%;"></app-artist-list> -->
-    <app-song-list [tracks]="tracks"></app-song-list>
+    <app-song-list [tracks]="tracks" (trackSelected)="ontrackSelected($event)"></app-song-list>
   </div>
+  <app-feature-chart *ngIf="selectedTrack" [track]="selectedTrack"></app-feature-chart>
 </div>

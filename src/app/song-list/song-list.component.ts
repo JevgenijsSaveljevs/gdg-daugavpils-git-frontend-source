@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { getMatInputUnsupportedTypeError } from '@angular/material/input';
+import { Track } from '../models/track';
 
 @Component({
   selector: 'app-song-list',
@@ -8,10 +9,15 @@ import { getMatInputUnsupportedTypeError } from '@angular/material/input';
 })
 export class SongListComponent implements OnInit {
 
+  @Output() trackSelected: EventEmitter<Track> = new EventEmitter<Track>();
   @Input() tracks: any;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCardClicked(track: Track) {
+    this.trackSelected.emit(track);
   }
 
 }
