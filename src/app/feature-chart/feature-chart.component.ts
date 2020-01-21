@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartType, RadialChartOptions, ChartTooltipItem, ChartData } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Label, BaseChartDirective } from 'ng2-charts';
 import { AudioFeature } from '../models/audio-feature';
 import { SpotifyService } from '../services/spotify.service';
 import { Track } from '../models/track';
@@ -12,6 +12,10 @@ import { FeatureDescriptor } from '../utils/feature-descriptor';
   styleUrls: ['./feature-chart.component.scss']
 })
 export class FeatureChartComponent implements OnInit {
+
+  // @ViewChild("chart", { static: true }) chart;
+  @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
+
   _track: Track;
   @Input('track')
   set setTrackId(newTrack: Track) {
@@ -30,9 +34,20 @@ export class FeatureChartComponent implements OnInit {
   // Radar
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
+
     legend: {
       display: true,
-      // labels: {}
+      labels: {
+        filter: (arg1, arg2) => {
+          if (arg1.text) {
+            return true;
+          }
+          // return false;
+          // return true;
+        }
+      }
+      // labels: {},
+
     },
     tooltips: {
       callbacks: {
@@ -40,10 +55,10 @@ export class FeatureChartComponent implements OnInit {
 
           const item = items[0];
           // return ['', 'aaa', 'll', 'tt'];
-                const dimension = data.labels[item. index];
+          const dimension = data.labels[item.index];
           const description = FeatureDescriptor.getDescritpion(dimension as string);
 
-          return ['',...description];
+          return ['', ...description];
         }
       }
       // callbacks: {
@@ -159,13 +174,18 @@ export class FeatureChartComponent implements OnInit {
   public radarChartData: ChartDataSets[] = [
     // { data: [65, 59, 90, 81, 56, 55, 40], label: 'track name' },
     // { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' }
+    { data: [], hideInLegendAndTooltip: false, showLine: false, label: ''}
   ];
+
   public radarChartType: ChartType = 'radar';
 
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit() {
-
+    // debugger;
+    // console.log(this.chart);
+    // this.radarChartData = [];
+    // this.chart.update()
   }
 
   getRandomColor() {

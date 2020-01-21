@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ConfigService } from '../services/config.service';
 import { resolve } from 'url';
 
-function readConfig(configService: ConfigService) {
+export function readConfig(configService: ConfigService) {
   return () => {
     return new Promise((resolve, reject) => {
      
@@ -12,8 +12,6 @@ function readConfig(configService: ConfigService) {
     });
   }
 }
-
-
 
 @NgModule({
   imports: [

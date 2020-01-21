@@ -15,8 +15,9 @@ $contentWidth: 50%;
 }
 
 .results{
-    width: $contentWidth;
+    // width: $contentWidth;
     display: flex;
+    width: 90%;
 }
 
 .example-full-width {
