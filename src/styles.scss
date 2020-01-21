@@ -17,5 +17,8 @@ $margin: 5px;
 .item {
     margin-top: $margin;
     margin-bottom: $margin;
+}
+
+.pointable {
     cursor: pointer;
 }

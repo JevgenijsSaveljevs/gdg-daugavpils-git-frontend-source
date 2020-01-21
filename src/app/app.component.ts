@@ -29,22 +29,27 @@ export class AppComponent {
         //   return this.spotifyService
         //     .search(text)
         // })
-        
+
       )
       .subscribe(text => {
-        this.spotifyService
+        if (text) {
+          this.spotifyService
             .search(text)
             .subscribe({
               next: (data) => {
                 this.artists = data['artists'].items;
                 this.tracks = data['tracks'].items;
                 console.log('data', data)
-              }, 
+              },
               error: (error) => {
                 this.notificationsService.error(error.message || error.statusText);
                 console.log('err', error)
               }
             })
+        } else {
+          this.artists = [];
+          this.tracks = [];
+        }
       })
   }
 
@@ -55,10 +60,6 @@ export class AppComponent {
   onSearchTextChange(text) {
     this.searchTextChanged$
       .next(text)
-    // .pipe(
-    //   debounceTime(300)
-    // )
-
 
     console.log('event', event);
   }

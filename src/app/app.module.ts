@@ -23,6 +23,7 @@ import { FeatureChartComponent } from './feature-chart/feature-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { MatButtonModule } from '@angular/material/button';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     ChartsModule,
     MatButtonModule,
     SimpleNotificationsModule.forRoot(),
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
