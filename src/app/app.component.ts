@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Artist } from './models/artist';
 import { Track } from './models/track';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent {
   tracks: any[];
   selectedTrack: Track;
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor(private spotifyService: SpotifyService,
+    private notificationsService: NotificationsService) {
     this.refreshSearchResults$ = this.searchTextChanged$
       .pipe(
         debounceTime(300),
@@ -39,6 +41,7 @@ export class AppComponent {
                 console.log('data', data)
               }, 
               error: (error) => {
+                this.notificationsService.error(error.message || error.statusText);
                 console.log('err', error)
               }
             })

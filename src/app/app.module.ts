@@ -22,6 +22,7 @@ import { JoinTrackArtistsPipe } from './pipes/join-track-artists.pipe';
 import { FeatureChartComponent } from './feature-chart/feature-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { MatButtonModule } from '@angular/material/button';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatChipsModule,
     ChartsModule,
     MatButtonModule,
+    SimpleNotificationsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
